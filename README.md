@@ -11,7 +11,11 @@ Production-ready Next.js marketing site for a DFW gutter specialist, with painti
 
 ## Estimate email configuration
 
-The form validates all fields on the server, rejects unsupported/oversize uploads, uses a hidden honeypot for basic spam defense, and sends via SMTP. Set `CONTACT_TO_EMAIL`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, and `SMTP_PASSWORD`. For higher-volume traffic, add a server-side rate-limit store and Turnstile before launch. Never put SMTP credentials in a `NEXT_PUBLIC_` variable.
+Every website estimate form posts to the shared server-only `/api/estimate` endpoint and delivers to `RuggedAmericanExteriors@gmail.com`. The endpoint validates all required customer fields, rejects unsupported or oversized uploads, sets reply-to to the customer, uses a hidden honeypot and submission timing check, and limits each connection to five attempts per fifteen minutes.
+
+Configure `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASSWORD`, and optionally `SMTP_FROM_EMAIL` in the hosting provider’s private environment settings. For Gmail, use `smtp.gmail.com`, port `587`, TLS, the sending Gmail account as `SMTP_USER`, and a Google App Password as `SMTP_PASSWORD`. Never commit a real password and never use a `NEXT_PUBLIC_` variable for SMTP settings. Restart or redeploy after changing environment variables.
+
+The sender name and subject identify `RuggedAmericanExteriors.com`. If `SMTP_FROM_EMAIL` is not provided, the authenticated `SMTP_USER` address is used. Some SMTP providers require the from address to match the authenticated account.
 
 ## Production and Docker
 
