@@ -133,10 +133,10 @@ export default async function Service({params}: {params: Promise<{slug: string}>
                         ['03', 'Coordinate the scope', 'We help organize roofing details and communication.'],
                         ['04', 'Complete the work', 'Our team schedules installation and walks through the finished project.'],
                       ].map(([number, title, description]) => (
-                        <li key={number} className="border-t-2 border-oxide pt-4">
-                          <span className="text-xs font-black text-oxide">{number}</span>
+                        <li key={number} className="group border border-oxide/60 bg-ink p-4 text-white transition hover:border-oxide hover:bg-[#2b2723]">
+                          <span className="inline-flex h-9 w-9 items-center justify-center border border-oxide bg-[#2b2723] text-xs font-black text-oxide transition group-hover:bg-oxide group-hover:text-ink">{number}</span>
                           <h4 className="mt-2 font-bold">{title}</h4>
-                          <p className="mt-2 text-sm text-ink/65">{description}</p>
+                          <p className="mt-2 text-sm text-white/70">{description}</p>
                         </li>
                       ))}
                     </ol>
@@ -179,9 +179,9 @@ export default async function Service({params}: {params: Promise<{slug: string}>
                   </div>
                   <ol className="grid gap-4 p-6 sm:grid-cols-4 sm:p-8">
                     {['Measure the roofline', 'Form each gutter run', 'Build custom corners', 'Fit outlets and downspouts'].map((step, index) => (
-                      <li key={step} className="border-l-2 border-oxide pl-4">
-                        <span className="text-xs font-black text-oxide">0{index + 1}</span>
-                        <p className="mt-2 font-bold">{step}</p>
+                      <li key={step} className="group border border-oxide/60 bg-ink p-4 text-white transition hover:border-oxide hover:bg-[#2b2723]">
+                        <span className="inline-flex h-9 w-9 items-center justify-center border border-oxide bg-[#2b2723] text-xs font-black text-oxide transition group-hover:bg-oxide group-hover:text-ink">0{index + 1}</span>
+                        <p className="mt-3 font-bold">{step}</p>
                       </li>
                     ))}
                   </ol>
@@ -209,10 +209,10 @@ export default async function Service({params}: {params: Promise<{slug: string}>
               <h3 className="font-display text-3xl uppercase">Our four step process</h3>
               <ol className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
                 {processSteps.map(([step,description], index) => (
-                  <li className="border-t-4 border-oxide bg-white p-5 shadow-[0_8px_22px_rgba(32,29,26,.06)]" key={step}>
-                    <span className="text-xs font-black text-oxide">0{index + 1}</span>
+                  <li className="group border border-oxide/60 bg-ink p-5 text-white shadow-[0_8px_22px_rgba(32,29,26,.14)] transition duration-200 hover:-translate-y-1 hover:border-oxide hover:bg-[#2b2723]" key={step}>
+                    <span className="inline-flex h-10 w-10 items-center justify-center border-2 border-oxide bg-[#2b2723] text-sm font-black text-oxide transition group-hover:bg-oxide group-hover:text-ink">0{index + 1}</span>
                     <h4 className="mt-3 font-display text-xl uppercase">{step}</h4>
-                    <p className="mt-3 text-sm leading-6 text-ink/65">{description}</p>
+                    <p className="mt-3 text-sm leading-6 text-white/70">{description}</p>
                   </li>
                 ))}
               </ol>
